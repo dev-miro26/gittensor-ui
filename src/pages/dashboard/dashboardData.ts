@@ -162,7 +162,6 @@ const formatTrendBucketLabel = (timestamp: number, range: TrendTimeRange) => {
 };
 
 const buildTrendBuckets = (
-  timestamps: Array<number | null>,
   range: TrendTimeRange,
   now = new Date(),
 ): Array<{ startMs: number; endMs: number; label: string }> => {
@@ -250,12 +249,6 @@ export const buildDashboardTrendData = (
     .filter((issue) => issue.status === 'completed')
     .map((issue) => toTimestamp(issue.completedAt));
   const buckets = buildTrendBuckets(
-    [
-      ...mergedPrTimestamps,
-      ...openedPrTimestamps,
-      ...openedIssueTimestamps,
-      ...resolvedIssueTimestamps,
-    ],
     range,
     now,
   );
