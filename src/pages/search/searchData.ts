@@ -296,12 +296,7 @@ export const useSearchResults = (
       normalizedQuery,
       limits.repositories,
     );
-  }, [
-    hasQuery,
-    limits.repositories,
-    normalizedQuery,
-    repoSearchData,
-  ]);
+  }, [hasQuery, limits.repositories, normalizedQuery, repoSearchData]);
 
   const prResults = useMemo(() => {
     if (!hasQuery) return [];

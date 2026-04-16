@@ -248,10 +248,7 @@ export const buildDashboardTrendData = (
   const resolvedIssueTimestamps = issues
     .filter((issue) => issue.status === 'completed')
     .map((issue) => toTimestamp(issue.completedAt));
-  const buckets = buildTrendBuckets(
-    range,
-    now,
-  );
+  const buckets = buildTrendBuckets(range, now);
   const mergedPrValues = bucketTimestamps(mergedPrTimestamps, buckets);
   const openedPrValues = bucketTimestamps(openedPrTimestamps, buckets);
   const openedIssueValues = bucketTimestamps(openedIssueTimestamps, buckets);
